@@ -12,7 +12,19 @@ A fast and simple command-line tool for converting between ISO timestamps, epoch
 
 ## Installation
 
-### Pre-built Binaries (Recommended)
+### Package Managers (Recommended)
+
+**Using Cargo (Rust package manager)**
+```bash
+cargo install chronos
+```
+
+**Using the install script (Linux/macOS)**
+```bash
+curl -sSL https://raw.githubusercontent.com/bitshyam/chronos/master/install.sh | bash
+```
+
+### Pre-built Binaries
 
 Download the latest release for your platform:
 
