@@ -16,7 +16,7 @@ A fast and simple command-line tool for converting between ISO timestamps, epoch
 
 **Using Cargo (Rust package manager)**
 ```bash
-cargo install chronos
+cargo install chronos-cli
 ```
 
 **Using the install script (Linux/macOS)**
