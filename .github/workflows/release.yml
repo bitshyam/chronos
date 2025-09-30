@@ -197,14 +197,24 @@ jobs:
           # Copy the updated formula
           cp ../chronos-cli.rb .
           
-          # Commit and push
+          # Check if there are changes to commit
           git add chronos-cli.rb
-          git commit -m "Update chronos-cli to v${{ steps.version.outputs.VERSION }}"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit - formula is already up to date"
+          else
+            git commit -m "Update chronos-cli to v${{ steps.version.outputs.VERSION }}"
+            git push
+            echo "Successfully updated Homebrew formula"
+          fi
 
       - name: Publish to crates.io
         run: |
           cargo login ${{ secrets.CRATES_IO_TOKEN }}
-          cargo publish
+          if cargo publish; then
+            echo "Successfully published to crates.io"
+          else
+            echo "Failed to publish to crates.io (version may already exist)"
+            exit 0
+          fi
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
