@@ -63,14 +63,14 @@ jobs:
         if: matrix.os != 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          tar czf ../../../${{ matrix.name }}.tar.gz chronos
+          tar czf ../../../${{ matrix.name }}.tar.gz chronos-cli
           cd -
 
       - name: Package binary (Windows)
         if: matrix.os == 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          7z a ../../../${{ matrix.name }}.zip chronos.exe
+          7z a ../../../${{ matrix.name }}.zip chronos-cli.exe
           cd -
 
       - name: Upload artifact
@@ -170,7 +170,7 @@ jobs:
             end
           
             def install
-              bin.install "chronos"
+              bin.install "chronos-cli" => "chronos"
             end
           
             test do
