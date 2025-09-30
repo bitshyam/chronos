@@ -186,13 +186,13 @@ jobs:
       - name: Update Homebrew Tap Repository
         if: github.repository == 'bitshyam/chronos'
         run: |
-          # Clone the homebrew tap repository
-          git clone https://github.com/bitshyam/homebrew-tap.git tap-repo
-          cd tap-repo
+          # Configure git with token authentication
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           
-          # Configure git
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          # Clone the homebrew tap repository with token
+          git clone https://x-access-token:${{ secrets.HOMEBREW_TAP_TOKEN }}@github.com/bitshyam/homebrew-tap.git tap-repo
+          cd tap-repo
           
           # Copy the updated formula
           cp ../chronos-cli.rb .
@@ -201,8 +201,6 @@ jobs:
           git add chronos-cli.rb
           git commit -m "Update chronos-cli to v${{ steps.version.outputs.VERSION }}"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
 
       - name: Publish to crates.io
         run: |
