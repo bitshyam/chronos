@@ -18,30 +18,30 @@ Download the latest release for your platform:
 
 **Linux (x86_64)**
 ```bash
-curl -L https://github.com/yourusername/chronos/releases/latest/download/chronos-linux-x86_64.tar.gz | tar xz
+curl -L https://github.com/bitshyam/chronos/releases/latest/download/chronos-linux-x86_64.tar.gz | tar xz
 sudo mv chronos /usr/local/bin/
 ```
 
 **Linux (ARM64)**
 ```bash
-curl -L https://github.com/yourusername/chronos/releases/latest/download/chronos-linux-aarch64.tar.gz | tar xz
+curl -L https://github.com/bitshyam/chronos/releases/latest/download/chronos-linux-aarch64.tar.gz | tar xz
 sudo mv chronos /usr/local/bin/
 ```
 
 **macOS (Intel)**
 ```bash
-curl -L https://github.com/yourusername/chronos/releases/latest/download/chronos-macos-x86_64.tar.gz | tar xz
+curl -L https://github.com/bitshyam/chronos/releases/latest/download/chronos-macos-x86_64.tar.gz | tar xz
 sudo mv chronos /usr/local/bin/
 ```
 
 **macOS (Apple Silicon)**
 ```bash
-curl -L https://github.com/yourusername/chronos/releases/latest/download/chronos-macos-aarch64.tar.gz | tar xz
+curl -L https://github.com/bitshyam/chronos/releases/latest/download/chronos-macos-aarch64.tar.gz | tar xz
 sudo mv chronos /usr/local/bin/
 ```
 
 **Windows**
-1. Download `chronos-windows-x86_64.zip` from the [releases page](https://github.com/yourusername/chronos/releases)
+1. Download `chronos-windows-x86_64.zip` from the [releases page](https://github.com/bitshyam/chronos/releases)
 2. Extract `chronos.exe` 
 3. Add the directory containing `chronos.exe` to your PATH
 
@@ -50,13 +50,13 @@ sudo mv chronos /usr/local/bin/
 If you have Rust installed:
 
 ```bash
-cargo install --git https://github.com/yourusername/chronos
+cargo install --git https://github.com/bitshyam/chronos
 ```
 
 Or clone and build locally:
 
 ```bash
-git clone https://github.com/yourusername/chronos
+git clone https://github.com/bitshyam/chronos
 cd chronos
 cargo build --release
 sudo cp target/release/chronos /usr/local/bin/
@@ -140,7 +140,7 @@ Requirements:
 - Rust 1.70+ 
 
 ```bash
-git clone https://github.com/yourusername/chronos
+git clone https://github.com/bitshyam/chronos
 cd chronos
 cargo build --release
 ```
