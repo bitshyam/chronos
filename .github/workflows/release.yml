@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  packages: write
+  pull-requests: read
 
 jobs:
   build:
@@ -94,6 +96,18 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
 
+      - name: Delete existing release if it exists
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            echo "Release $TAG_NAME already exists, deleting it..."
+            gh release delete "$TAG_NAME" --yes
+          else
+            echo "Release $TAG_NAME does not exist, proceeding with creation..."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -101,6 +115,9 @@ jobs:
             */chronos-*.tar.gz
             */chronos-*.zip
           generate_release_notes: true
+          draft: false
+          prerelease: false
+          make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
