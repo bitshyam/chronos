@@ -170,7 +170,7 @@ jobs:
             end
           
             def install
-:              bin.install "chronos-cli" => "chronos"
+              bin.install "chronos-cli" => "chronos"
             end
           
             test do
