@@ -14,6 +14,11 @@ A fast and simple command-line tool for converting between ISO timestamps, epoch
 
 ### Package Managers (Recommended)
 
+**Using Homebrew (macOS/Linux)**
+```bash
+brew install bitshyam/tap/chronos-cli
+```
+
 **Using Cargo (Rust package manager)**
 ```bash
 cargo install chronos-cli
@@ -160,6 +165,43 @@ cargo build --release
 ## License
 
 MIT License - see LICENSE file for details.
+
+## Automated Release Process
+
+This project uses GitHub Actions to automatically update package managers when a new release is created:
+
+### What Happens When You Create a New Tag
+
+1. **Cross-platform binaries** are built for Linux, macOS, and Windows
+2. **GitHub release** is created with all binaries attached
+3. **Homebrew formula** is automatically updated with new version and SHA256 hashes
+4. **crates.io** is automatically updated with the new version
+
+### Creating a New Release
+
+```bash
+# Update version in Cargo.toml first, then:
+git add Cargo.toml
+git commit -m "Bump version to v0.2.0"
+git push origin master
+
+# Create and push tag
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+This will automatically:
+- ✅ Build cross-platform binaries
+- ✅ Create GitHub release
+- ✅ Update Homebrew tap repository
+- ✅ Publish to crates.io
+
+### Required GitHub Secrets
+
+For the automated workflow to work, you need these secrets in your repository settings:
+
+- `CRATES_IO_TOKEN`: Your crates.io API token
+- `HOMEBREW_TAP_TOKEN`: GitHub token with access to your homebrew-tap repository
 
 ## Contributing
 
