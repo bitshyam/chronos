@@ -1,5 +1,5 @@
 [package]
-name = "chronos"
+name = "chronos-cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["bitshyam <bitshyam@example.com>"]
