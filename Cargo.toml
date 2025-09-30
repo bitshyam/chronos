@@ -1,0 +1,16 @@
+[package]
+name = "chronos"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A fast CLI tool for converting between ISO timestamps, epoch timestamps, and local time"
+readme = "README.md"
+homepage = "https://github.com/yourusername/chronos"
+repository = "https://github.com/yourusername/chronos"
+license = "MIT"
+keywords = ["cli", "time", "timestamp", "epoch", "iso"]
+categories = ["command-line-utilities", "date-and-time"]
+
+[dependencies]
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4.0", features = ["derive"] }
